@@ -1,7 +1,7 @@
 export const NavData=[
-    {title:"home"},
-    {title:"About us"},
-    {title:"Contact us"},
-    {title:"Blog"},
-    {title:"Course"}
+    {title:"home",path:'/Home_main1_1.jsx'},
+    {title:"About us",path:"/Aboutus" },
+    {title:"Contact us",path:"/ContactUs"},
+    {title:"Blog",path:"/Blog"},
+    {title:"Course",path:"/Course"}
 ]

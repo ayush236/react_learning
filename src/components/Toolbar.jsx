@@ -1,27 +1,32 @@
 import React from "react";
 import { NavData } from "./NavData";
 import{BiMenu} from 'react-icons/bi';
+import { Link, useLocation } from "react-router-dom";
 
 function Toolbar({setSidebarShow}){
+    const location=useLocation();
     return(
-        <div className="bg-red-600 w-screen flex justify-between text-white px-6 h-12 items-center
-        sm:bg-orange-500
-        md:bg-blue-600
-        lg:bg-pink-700
-        xl:bg-green-800
-        2xl:bg-yellow-800">
+        <div className="bg-blue-800 w-screen py-4 flex justify-between text-white px-6 h20 items-center
+        sm:bg-blue-800
+        md:bg-blue-800
+        lg:bg-blue-800
+        xl:bg-blue-800
+        2xl:bg-blue-800">
 
-            <div className="text-3x font-semibold drop-shadow-md ">logo</div>
-            <div className="flex gap-6 capitalize hidden md:flex">
+            <div className="text-lg md:text-3x font-semibold drop-shadow-md ">logo</div>
+            <div className="hidden md:flex gap-6 capitalize">
                 {
                     NavData.map((val,i)=>{
-                        return <div key={i}>{val.title}</div>
+                        return <div key={i} className={`${val.path === location.pathname? 'border-b-2 border-white ':'bg-transparent'}`}>
+                            <Link to={val.path}>{val.title}</Link>
+
+                        </div>
                   })
                 }
             </div>
-            <div  onclick={()=>{
+            <div  onClick={()=>{
                     setSidebarShow() 
-            }}className=" color-orange-600 flex md:hidden text-xl">
+            }} className=" md:hidden flex">
                 <BiMenu/>
             </div>
             </div>
